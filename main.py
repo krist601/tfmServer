@@ -28,6 +28,6 @@ class SummaryResponse(BaseModel):
 # Define the POST endpoint
 @app.post("/summarize", response_model=SummaryResponse)
 async def summarize_text(request: TextRequest):
-    summary = summarizer(request.text, max_length=1500, min_length=0, do_sample=False)
+    summary = summarizer(request.text, max_length=700, min_length=0, do_sample=False)
     summarized_text = summary[0]['summary_text']
     return SummaryResponse(summary=summarized_text)
